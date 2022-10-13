@@ -5,12 +5,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Bairro {
-  private long id;
-  private String nome;
-  private double valorM2;
+public class District {
+  private UUID id;
+  private String name;
+  private BigDecimal valueM2;
+
+  public District(String name, BigDecimal valueM2) {
+    this.id = UUID.randomUUID();
+    this.name = name;
+    this.valueM2 = valueM2;
+  }
 }
