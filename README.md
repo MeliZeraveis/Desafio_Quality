@@ -2,12 +2,12 @@
 Desafio Quality para o Bootcamp Java do Meli - Grupo 1
 
 ## Membros:
-- [https://github.com/brunacamposxx](Bruna Campos Ferreira)
-- [https://github.com/estpimentel](Esther Maria Pimentel Porto)
-- [https://github.com/HugoDaniel2000MELI](Hugo Daniel Caxias das Virgens)
-- [https://github.com/jbenevides92](Jonatas Marques Benevides)
-- [https://github.com/Atharr](Marcello Pires Alves)
-- [https://github.com/rosymarianasantos](Rosy Mariana Nunes dos Santos)
+- [Bruna Campos Ferreira](https://github.com/brunacamposxx)
+- [Esther Maria Pimentel Porto](https://github.com/estpimentel)
+- [Hugo Daniel Caxias das Virgens](https://github.com/HugoDaniel2000MELI)
+- [Jonatas Marques Benevides](https://github.com/jbenevides92)
+- [Marcello Pires Alves](https://github.com/Atharr)
+- [Rosy Mariana Nunes dos Santos](https://github.com/rosymarianasantos)
 
 ## Pré-requisitos
 1. Spring-boot version: `2.7.4`
