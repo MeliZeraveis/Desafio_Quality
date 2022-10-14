@@ -45,4 +45,5 @@ public class Msg {
     public static final String FILE_READ_ERROR = "Error reading file";
     public static final String FILE_WRITE_ERROR = "Error writing file";
     public static final String PROPERTY_NOT_FOUND = "Property not found";
+    public static final String OBJECT_NOT_FOUND = "Object not found";
 }
