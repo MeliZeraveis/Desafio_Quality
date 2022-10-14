@@ -43,7 +43,7 @@ public class TestUtilsGenerator {
 
         return PropertyResponseDTO.builder()
                 .propName("Casa de praia")
-                .propDistrict("Santa Teresa")
+                .propDistrict(district.getName())
                 .propArea(180.0)
                 .propValue(new BigDecimal("540000.0"))
                 .rooms(rooms)

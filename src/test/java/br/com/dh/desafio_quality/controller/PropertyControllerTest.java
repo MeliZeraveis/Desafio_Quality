@@ -1,5 +1,6 @@
 package br.com.dh.desafio_quality.controller;
 
+import br.com.dh.desafio_quality.dto.DistrictDTO;
 import br.com.dh.desafio_quality.dto.PropertyRequestDTO;
 import br.com.dh.desafio_quality.dto.PropertyResponseDTO;
 import br.com.dh.desafio_quality.exception.NotFoundException;
@@ -22,6 +23,7 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,8 +34,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import static org.mockito.Mockito.atLeastOnce;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
+
 
 @WebMvcTest(PropertyController.class)
 class PropertyControllerTest {
@@ -44,18 +50,26 @@ class PropertyControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @InjectMocks
     PropertyController controller;
 
     @MockBean
     PropertyService service;
 
+    PropertyRequestDTO propertyRequest;
+    PropertyResponseDTO propertyResponse;
+
     @BeforeEach
     void setUp() {
-    }
+        List<Room> listRooms = new ArrayList<>();
+        listRooms.add(new Room("Sala de estar", 4, 5 ));
+        listRooms.add(new Room("Cozinha", 10, 10 ));
 
-    @AfterEach
-    void tearDown() {
+        DistrictDTO district = new DistrictDTO("Copacabana", BigDecimal.valueOf(1000) );
+
+        propertyRequest = new PropertyRequestDTO("Casa", district, listRooms);
+        Property property = new Property(propertyRequest.getPropName(), propertyRequest.getPropDistrict(), propertyRequest.getRooms());
+        propertyResponse = new PropertyResponseDTO(property);
+
     }
 
 //    @Test
@@ -67,18 +81,26 @@ class PropertyControllerTest {
     @Test
     @DisplayName("Tests the method that posts a property - Controller")
     void postProperty_WhenPropertyIsValid_ThenReturnProperty() throws Exception {
-        PropertyRequestDTO property = TestUtilsGenerator.postProperty();
-        PropertyResponseDTO propertyResponse = TestUtilsGenerator.postPropertyResponse();
 
-//        ResponseEntity<PropertyResponseDTO> response = controller.postProperty(property);
+        List<Room> listRooms = new ArrayList<>();
+        listRooms.add(new Room("Sala de estar", 4, 5 ));
+        listRooms.add(new Room("Cozinha", 10, 10 ));
+        DistrictDTO district = new DistrictDTO("Copacabana", BigDecimal.valueOf(1000) );
 
-        BDDMockito.when(service.postProperty(ArgumentMatchers.any(PropertyRequestDTO.class))).thenReturn(propertyResponse);
+        PropertyRequestDTO propertyRequest = new PropertyRequestDTO("Casa", district, listRooms);
+
+        BDDMockito.when(service.postProperty(ArgumentMatchers.any())).thenReturn(propertyResponse);
 
         ResultActions resposta = mockMvc.perform(
                 post("/property")
-                .contentType(MediaType.APPLICATION_JSON));
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(propertyRequest)));
 
         resposta.andExpect(status().isCreated());
+//        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+//        assertThat(response.getBody()).isNull();
+//        assertThat(response.getBody().getId()).isNotNull();
+//        verify(service, atLeastOnce()).postProperty(property);
 
     }
 }
