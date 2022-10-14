@@ -106,4 +106,31 @@
     "roomWidth" : 10.0,
     "roomArea" : 100.0
   }
+}, {
+  "id" : "e245d324-5e87-46f7-8fb8-001103aa20b2",
+  "propName" : "Casa de Praia da Rosy",
+  "propDistrict" : {
+    "id" : "4f3ee824-9687-496f-867e-ffa641eacee9",
+    "name" : "Bela Vista",
+    "valueM2" : 1000
+  },
+  "propArea" : 32.0,
+  "propValue" : 32000.0,
+  "rooms" : [ {
+    "roomName" : "Sala",
+    "roomLength" : 5.0,
+    "roomWidth" : 4.0,
+    "roomArea" : 20.0
+  }, {
+    "roomName" : "Cozinha",
+    "roomLength" : 4.0,
+    "roomWidth" : 3.0,
+    "roomArea" : 12.0
+  } ],
+  "largestRoom" : {
+    "roomName" : "Sala",
+    "roomLength" : 5.0,
+    "roomWidth" : 4.0,
+    "roomArea" : 20.0
+  }
 } ]

@@ -1,9 +1,7 @@
 package br.com.dh.desafio_quality.dto;
 
 import br.com.dh.desafio_quality.model.Property;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -13,6 +11,8 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PropertyResponseDTO {
   private UUID id;
   private String propName;

@@ -2,6 +2,8 @@ package br.com.dh.desafio_quality.dto;
 
 import br.com.dh.desafio_quality.model.District;
 import br.com.dh.desafio_quality.model.Room;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +12,8 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 public class PropertyRequestDTO {
     private String propName;
     private District propDistrict;
