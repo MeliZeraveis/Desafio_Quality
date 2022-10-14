@@ -8,13 +8,13 @@ public class Msg {
     public static final String ROOM_NOT_EMPTY = "Room must not be empty";
     public static final String ROOM_NAME_REQUIRED = "Room name is required";
     public static final String ROOM_NAME_NOT_EMPTY = "Room name must not be empty";
-    public static final String ROOM_NAME_SIZE = "Room name must be between 1 and 30 characters";
     public static final String ROOM_WIDTH_REQUIRED = "Room width is required";
     public static final String ROOM_WIDTH_NOT_EMPTY = "Room width must not be empty";
     public static final String ROOM_LENGTH_REQUIRED = "Room length is required";
     public static final String ROOM_LENGTH_NOT_EMPTY = "Room length must not be empty";
     public static final String ROOM_WIDTH_INVALID = "Room width must be greater than 0";
     public static final String ROOM_LENGTH_INVALID = "Room length must be greater than 0";
+    public static final String ROOM_NAME_SIZE_NOT_VALID = "Room name must be between 1 and 30 characters";
     public static final String DISTRICT_NAME_REQUIRED = "District name is required";
     public static final String DISTRICT_NAME_NOT_EMPTY = "District name must not be empty";
 
