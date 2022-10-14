@@ -47,7 +47,6 @@ public class PropertyControllerTestIT {
     @BeforeEach
     void setup() {
         repository.deleteAll();
-        log.info("Property: " + repository.getAll().size());
         List<Room> listRooms = new ArrayList<>();
         listRooms.add(new Room("quarto", 4, 5 ));
         listRooms.add(new Room("cozinha", 10, 10 ));
