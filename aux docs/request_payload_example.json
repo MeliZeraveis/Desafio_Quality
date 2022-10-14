@@ -1,0 +1,19 @@
+{
+  "propName": "propName",
+  "propDistrict": {
+    "name": "propDistrict",
+    "valueM2": 1000
+  },
+  "rooms": [
+    {
+      "roomName": "roomName1",
+      "roomWidth": 4,
+      "roomLength": 5
+    },
+    {
+      "roomName": "roomName2",
+      "roomWidth": 10,
+      "roomLength": 10
+    }
+  ]
+}

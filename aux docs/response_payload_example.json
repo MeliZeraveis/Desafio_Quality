@@ -1,0 +1,21 @@
+{
+  "id": "propName",
+  "propName": "propName",
+  "propDistrict": "propDistrict",
+  "propArea": 120.0,
+  "propValue": 120000.0,
+  "rooms": [
+    {
+      "roomName": "roomName1",
+      "roomArea": 12.0
+    },
+    {
+      "roomName": "roomName2",
+      "roomArea": 100.0
+    }
+  ],
+  "largestRoom": {
+    "roomName": "roomName2",
+    "roomArea": 100.0
+  }
+}
