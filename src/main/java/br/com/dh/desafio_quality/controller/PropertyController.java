@@ -1,6 +1,7 @@
 package br.com.dh.desafio_quality.controller;
 
 import br.com.dh.desafio_quality.dto.PropertyDTO;
+import br.com.dh.desafio_quality.exception.NotFoundException;
 import br.com.dh.desafio_quality.model.Property;
 import br.com.dh.desafio_quality.service.IProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class PropertyController {
   private IProperty service;
 
   @GetMapping("/{id}")
-  public ResponseEntity<PropertyDTO> getProperty(@PathVariable UUID id) {
+  public ResponseEntity<PropertyDTO> getProperty(@PathVariable UUID id) throws NotFoundException {
     return new ResponseEntity<>(service.getProperty(id), HttpStatus.OK);
   }
 

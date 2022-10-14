@@ -1,18 +1,15 @@
 package br.com.dh.desafio_quality.repository;
 
-import br.com.dh.desafio_quality.dto.DistrictDTO;
+import br.com.dh.desafio_quality.dto.PropertyDTO;
 import br.com.dh.desafio_quality.enums.Msg;
-import br.com.dh.desafio_quality.model.District;
+import br.com.dh.desafio_quality.model.Property;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import org.hibernate.validator.spi.nodenameprovider.Property;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class PropertyRepo {
@@ -29,22 +26,28 @@ public class PropertyRepo {
         return properties;
     }
 
-    public Property getOne(String propProperty) {
-        return getAll().stream()
-                .filter(property -> property.getName().equals(propProperty))
-                .findFirst()
-                .orElse(null);
+    public Optional<Property> getOne(UUID id) {
+        List<Property> properties = getAll();
+
+        for (Property p : properties) {
+            if (p.getId().equals(id)) {
+                return Optional.of(p);
+            }
+        }
+        return Optional.empty();
     }
 
-    public void save(PropertyDTO newProperty) {
+    public PropertyDTO save(Property newProperty) {
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
         List<Property> properties = new ArrayList<>(getAll());
 
-        properties.add(new Property(newProperty.getName(), newProperty.getValueM2()));
+        properties.add(newProperty);
         try {
             writer.writeValue(new File(linkFile), properties);
         } catch (Exception ex) {
             System.out.println(Msg.FILE_WRITE_ERROR);
         }
+
+        return new PropertyDTO(newProperty);
     }
 }
