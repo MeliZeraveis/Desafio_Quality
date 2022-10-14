@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @NoArgsConstructor
-public class PropertyDTO {
+public class PropertyResponseDTO {
   private UUID id;
   private String propName;
   private String propDistrict;
@@ -21,7 +21,7 @@ public class PropertyDTO {
   private BigDecimal propValue;
   private List<RoomDTO> rooms;
 
-  public PropertyDTO(Property property) {
+  public PropertyResponseDTO(Property property) {
     this.id = property.getId();
     this.propName = property.getPropName();
     this.propDistrict = property.getPropDistrict().getName();

@@ -1,6 +1,7 @@
 package br.com.dh.desafio_quality.repository;
 
-import br.com.dh.desafio_quality.dto.PropertyDTO;
+import br.com.dh.desafio_quality.dto.PropertyRequestDTO;
+import br.com.dh.desafio_quality.dto.PropertyResponseDTO;
 import br.com.dh.desafio_quality.enums.Msg;
 import br.com.dh.desafio_quality.model.Property;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -37,17 +38,18 @@ public class PropertyRepo {
         return Optional.empty();
     }
 
-    public PropertyDTO save(Property newProperty) {
+    public PropertyResponseDTO save(Property newProperty) {
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
         List<Property> properties = new ArrayList<>(getAll());
 
         properties.add(newProperty);
+
         try {
             writer.writeValue(new File(linkFile), properties);
         } catch (Exception ex) {
             System.out.println(Msg.FILE_WRITE_ERROR);
         }
 
-        return new PropertyDTO(newProperty);
+        return new PropertyResponseDTO(newProperty);
     }
 }

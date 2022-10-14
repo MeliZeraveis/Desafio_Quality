@@ -1,6 +1,7 @@
 package br.com.dh.desafio_quality.controller;
 
-import br.com.dh.desafio_quality.dto.PropertyDTO;
+import br.com.dh.desafio_quality.dto.PropertyRequestDTO;
+import br.com.dh.desafio_quality.dto.PropertyResponseDTO;
 import br.com.dh.desafio_quality.exception.NotFoundException;
 import br.com.dh.desafio_quality.model.Property;
 import br.com.dh.desafio_quality.service.IProperty;
@@ -19,13 +20,13 @@ public class PropertyController {
   private IProperty service;
 
   @GetMapping("/{id}")
-  public ResponseEntity<PropertyDTO> getProperty(@PathVariable UUID id) throws NotFoundException {
+  public ResponseEntity<PropertyResponseDTO> getProperty(@PathVariable UUID id) throws NotFoundException {
     return new ResponseEntity<>(service.getProperty(id), HttpStatus.OK);
   }
 
   @PostMapping
   @ResponseBody
-  public ResponseEntity<PropertyDTO> postProperty(@RequestBody @Valid Property property) {
+  public ResponseEntity<PropertyResponseDTO> postProperty(@RequestBody @Valid PropertyRequestDTO property) {
     return new ResponseEntity<>(service.postProperty(property), HttpStatus.CREATED);
   }
 }
