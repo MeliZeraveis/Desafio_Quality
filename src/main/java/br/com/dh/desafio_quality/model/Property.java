@@ -25,10 +25,7 @@ public class Property {
     this.propName = propName;
     this.propDistrict = propDistrict;
     this.rooms = rooms;
-    rooms.forEach(room -> System.out.println(room.getRoomName() + " " + room.getRoomLength() + " " + room.getRoomWidth()));
     this.propArea = rooms.stream().mapToDouble(Room::getRoomArea).sum();
-    System.out.println("propArea: " + propArea);
-    System.out.println("propDistrict: " + propDistrict.getName() + " - " + propDistrict.getValueM2());
     this.propValue = propDistrict.getValueM2().multiply(BigDecimal.valueOf(propArea));
     this.largestRoom = rooms.stream().max((r1, r2) -> Double.compare(r1.getRoomArea(), r2.getRoomArea())).get();
   }

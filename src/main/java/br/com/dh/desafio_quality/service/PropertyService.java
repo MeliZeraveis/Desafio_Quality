@@ -9,7 +9,6 @@ import br.com.dh.desafio_quality.repository.PropertyRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
 import java.util.Optional;
 import java.util.UUID;
 
