@@ -1,8 +1,8 @@
 [ {
-  "id" : "a68ec125-5e4b-4f22-8b5b-121fe9880b0d",
+  "id" : "65a30362-a4dd-4fb0-bf18-3dcbd61627fb",
   "propName" : "Casa",
   "propDistrict" : {
-    "id" : "92c74f30-77da-4fe4-af4d-384c21a9eb93",
+    "id" : "9eca73cc-31c2-4420-bb13-b5c8aad5ad84",
     "name" : "Tijuca",
     "valueM2" : 1000
   },
@@ -21,33 +21,6 @@
   } ],
   "largestRoom" : {
     "roomName" : "cozinha",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }
-}, {
-  "id" : "93a8598f-5884-418e-8049-14aad525882d",
-  "propName" : "Casa",
-  "propDistrict" : {
-    "id" : "81faeb27-befa-4433-8850-1a9a09eaa2ea",
-    "name" : "Copacabana",
-    "valueM2" : 1000
-  },
-  "propArea" : 120.0,
-  "propValue" : 120000.0,
-  "rooms" : [ {
-    "roomName" : "Sala de estar",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
-    "roomArea" : 20.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Cozinha",
     "roomLength" : 10.0,
     "roomWidth" : 10.0,
     "roomArea" : 100.0
