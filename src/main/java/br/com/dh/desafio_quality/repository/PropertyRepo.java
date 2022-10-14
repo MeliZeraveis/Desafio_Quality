@@ -52,4 +52,19 @@ public class PropertyRepo {
 
         return new PropertyResponseDTO(newProperty);
     }
+
+    public  void update(List<Property> listProperty){
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+
+        try {
+            writer.writeValue(new File(linkFile), listProperty);
+        } catch (Exception ex) {
+            System.out.println(Msg.FILE_WRITE_ERROR);
+        }
+    }
+
+    public void deleteAll(){
+        List<Property> emptyArray = new ArrayList<>();
+        update(emptyArray);
+    }
 }
