@@ -1,107 +1,26 @@
 [ {
-  "id" : "741b227f-9046-4052-9a10-2344c0aba3af",
-  "propName" : "Mansão Dev",
+  "id" : "3275b207-4711-4801-9e29-1bd09ae71faf",
+  "propName" : "Casa",
   "propDistrict" : {
-    "id" : null,
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 0.0,
-  "propValue" : 0.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 0.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 5.0,
-    "roomWidth" : 4.0,
-    "roomArea" : 0.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 0.0
-  }
-}, {
-  "id" : "136fe690-08ca-43bd-a781-40b78b22d507",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : null,
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 0.0,
-  "propValue" : 0.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 0.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 5.0,
-    "roomWidth" : 4.0,
-    "roomArea" : 0.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 0.0
-  }
-}, {
-  "id" : "22faa5c5-dd3b-4e60-9706-f34091fab9e2",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : null,
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 0.0,
-  "propValue" : 0.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 0.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 5.0,
-    "roomWidth" : 4.0,
-    "roomArea" : 0.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 0.0
-  }
-}, {
-  "id" : "03fc4702-3946-481a-9a9e-f0a706cd3c75",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : "ee6c2691-02cf-4880-b8c4-34f6b5e92fee",
-    "name" : "Tech District",
+    "id" : "148669b2-6550-47a0-8c16-45d8992c6ea4",
+    "name" : "Tijuca",
     "valueM2" : 1000
   },
   "propArea" : 120.0,
   "propValue" : 120000.0,
   "rooms" : [ {
-    "roomName" : "Dev Room",
+    "roomName" : "quarto",
+    "roomLength" : 4.0,
+    "roomWidth" : 5.0,
+    "roomArea" : 20.0
+  }, {
+    "roomName" : "cozinha",
     "roomLength" : 10.0,
     "roomWidth" : 10.0,
     "roomArea" : 100.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 5.0,
-    "roomWidth" : 4.0,
-    "roomArea" : 20.0
   } ],
   "largestRoom" : {
-    "roomName" : "Dev Room",
+    "roomName" : "cozinha",
     "roomLength" : 10.0,
     "roomWidth" : 10.0,
     "roomArea" : 100.0
