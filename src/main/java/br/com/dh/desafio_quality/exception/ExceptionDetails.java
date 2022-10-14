@@ -1,4 +1,4 @@
-package exception;
+package br.com.dh.desafio_quality.exception;
 
 import lombok.Builder;
 import lombok.Data;

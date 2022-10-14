@@ -1,4 +1,4 @@
-package exception;
+package br.com.dh.desafio_quality.exception;
 
 import br.com.dh.desafio_quality.enums.Msg;
 import org.springframework.http.HttpStatus;
