@@ -27,6 +27,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 
+/**
+ * The type Property service test.
+ */
 @ExtendWith(MockitoExtension.class)
 class PropertyServiceTest {
 
@@ -35,14 +38,13 @@ class PropertyServiceTest {
 
     @Mock
     private PropertyRepo repo;
-
     private Property property;
-
     private PropertyResponseDTO propertyResponse;
-
     private PropertyRequestDTO propertyRequest;
 
-
+    /**
+     * setup - prepares the environment before each test.
+     */
     @BeforeEach
     void setup() {
         List<Room> listRooms = new ArrayList<>();
@@ -63,6 +65,9 @@ class PropertyServiceTest {
 
     }
 
+    /**
+     * Gets property return property when success.
+     */
     @Test
     @DisplayName("Validando Propriedade existente")
     void getProperty_returnProperty_whenSuccess() {
@@ -76,6 +81,9 @@ class PropertyServiceTest {
         assertThat(propertyTest.getPropValue()).isPositive();
     }
 
+    /**
+     * Gets property return exception when not success.
+     */
     @Test
     @DisplayName("Validando Propriedade inexistente")
     void getProperty_returnException_whenNotSuccess() {
@@ -88,6 +96,9 @@ class PropertyServiceTest {
         });
     }
 
+    /**
+     * Post property return created when property details is valid.
+     */
     @Test
     void postProperty_returnCreated_whenPropertyDetailsIsValid() {
         Mockito.when(repo.save(ArgumentMatchers.any()))
