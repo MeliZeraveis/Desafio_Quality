@@ -8,11 +8,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class RoomDTO {
+public class RoomResponseDTO {
   private String roomName;
   private double roomArea;
 
-  public RoomDTO(Room room) {
+  public RoomResponseDTO(Room room) {
     this.roomName = room.getRoomName();
     this.roomArea = room.getRoomArea();
   }

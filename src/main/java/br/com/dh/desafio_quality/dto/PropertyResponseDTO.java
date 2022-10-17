@@ -19,8 +19,8 @@ public class PropertyResponseDTO {
   private String propDistrict;
   private double propArea;
   private BigDecimal propValue;
-  private List<RoomDTO> rooms;
-  private RoomDTO largestRoom;
+  private List<RoomResponseDTO> rooms;
+  private RoomResponseDTO largestRoom;
 
   public PropertyResponseDTO(Property property) {
     this.id = property.getId();
@@ -28,7 +28,7 @@ public class PropertyResponseDTO {
     this.propDistrict = property.getPropDistrict().getName();
     this.propArea = property.getPropArea();
     this.propValue = property.getPropValue();
-    this.rooms = property.getRooms().stream().map(RoomDTO::new).collect(Collectors.toList());
-    this.largestRoom = new RoomDTO(property.getLargestRoom());
+    this.rooms = property.getRooms().stream().map(RoomResponseDTO::new).collect(Collectors.toList());
+    this.largestRoom = new RoomResponseDTO(property.getLargestRoom());
   }
 }
