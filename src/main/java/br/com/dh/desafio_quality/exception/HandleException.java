@@ -1,6 +1,7 @@
 package br.com.dh.desafio_quality.exception;
 
 import br.com.dh.desafio_quality.enums.ExceptionType;
+import br.com.dh.desafio_quality.enums.Msg;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,7 +73,7 @@ public class HandleException extends ResponseEntityExceptionHandler {
         List<FieldError> errors = ex.getBindingResult().getFieldErrors();
         ExceptionsDetailsValidate exceptionDetails = ExceptionsDetailsValidate.builder()
                 .title(ExceptionType.PARAMETER_NOT_VALID.message)
-                .message("One or more fields are invalid.")
+                .message(Msg.FIELD_NOT_FOUND)
                 .fields(errors.stream().map(FieldError::getField).collect(Collectors.joining(";")))
                 .fieldsMessages(errors.stream().map(FieldError::getDefaultMessage).collect(Collectors.joining(";")))
                 .timestamp(LocalDateTime.now())
