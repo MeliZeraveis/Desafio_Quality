@@ -7,6 +7,9 @@ public class Msg {
     public static final String ROOM_REQUIRED = "Room is required";
     public static final String ROOM_NOT_EMPTY = "Room must not be empty";
     public static final String ROOM_NAME_REQUIRED = "Room name is required";
+    public static final String ROOM_LENGTH_VALUE_NOT_VALID = "Room length must be between 1 and 33";
+    public static final String ROOM_WIDTH_VALUE_NOT_VALID = "Room width must be between 1 and 25";
+
     public static final String ROOM_NAME_NOT_EMPTY = "Room name must not be empty";
     public static final String ROOM_WIDTH_REQUIRED = "Room width is required";
     public static final String ROOM_WIDTH_NOT_EMPTY = "Room width must not be empty";

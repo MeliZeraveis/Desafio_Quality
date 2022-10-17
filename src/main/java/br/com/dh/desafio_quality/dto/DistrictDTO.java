@@ -8,12 +8,13 @@ import lombok.Setter;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
+/**
+ * The type District dto.
+ */
 @Getter
-@Setter
-@NoArgsConstructor
 public class DistrictDTO {
-  @NotBlank(message = Msg.NAME_NOT_EMPTY)
-  // `@Pattern(regexp = "[A-ZÁÀÃÉÈÊÍÏÓÔÕÖÚÇÑ][a-záàâãéèêíïóôõöúçñ]+", message = Msg.NAME_NOT_VALID)
+  @NotBlank(message = Msg.DISTRICT_NOT_EMPTY)
+  @Pattern(regexp = "[A-ZÁÀÃÉÈÊÍÏÓÔÕÖÚÇÑ][a-záàâãéèêíïóôõöúçñ]+.*", message = Msg.NAME_NOT_VALID)
   @Size(min = 1, max = 45, message = Msg.NAME_SIZE_NOT_VALID)
   private String name;
   @NotNull(message = Msg.DISTRICT_VALUE_REQUIRED)
@@ -21,6 +22,12 @@ public class DistrictDTO {
   @Digits(integer=13, fraction=2, message = Msg.DISTRICT_VALUE_NOT_VALID)
   private BigDecimal valueM2;
 
+  /**
+   * Instantiates a new District dto.
+   *
+   * @param name    the name
+   * @param valueM2 the value m 2
+   */
   public DistrictDTO(String name, BigDecimal valueM2) {
     this.name = name;
     this.valueM2 = valueM2;

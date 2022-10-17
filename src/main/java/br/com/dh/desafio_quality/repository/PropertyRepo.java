@@ -12,11 +12,25 @@ import org.springframework.stereotype.Repository;
 import java.io.File;
 import java.util.*;
 
+/**
+ * The type Property repo.
+ */
 @Repository
 public class PropertyRepo {
+    /**
+     * The constant linkFile.
+     */
     public static final String linkFile = "src/main/resources/properties.json";
+    /**
+     * The Mapper.
+     */
     ObjectMapper mapper = new ObjectMapper();
 
+    /**
+     * Gets all.
+     *
+     * @return the all
+     */
     public List<Property> getAll() {
         List<Property> properties = null;
         try {
@@ -27,6 +41,12 @@ public class PropertyRepo {
         return properties;
     }
 
+    /**
+     * Gets one.
+     *
+     * @param id the id
+     * @return the one
+     */
     public Optional<Property> getOne(UUID id) {
         List<Property> properties = getAll();
 
@@ -38,6 +58,12 @@ public class PropertyRepo {
         return Optional.empty();
     }
 
+    /**
+     * Save property response dto.
+     *
+     * @param newProperty the new property
+     * @return the property response dto
+     */
     public PropertyResponseDTO save(Property newProperty) {
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
         List<Property> properties = new ArrayList<>(getAll());
@@ -53,6 +79,11 @@ public class PropertyRepo {
         return new PropertyResponseDTO(newProperty);
     }
 
+    /**
+     * Update.
+     *
+     * @param listProperty the list property
+     */
     public  void update(List<Property> listProperty){
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
 
@@ -63,6 +94,9 @@ public class PropertyRepo {
         }
     }
 
+    /**
+     * Delete all.
+     */
     public void deleteAll(){
         List<Property> emptyArray = new ArrayList<>();
         update(emptyArray);

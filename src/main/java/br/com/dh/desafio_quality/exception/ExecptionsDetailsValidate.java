@@ -1,19 +1,20 @@
 package br.com.dh.desafio_quality.exception;
 
+
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 /**
- * The type Exception details.
+ * The type Execptions details validate.
  */
-@Data
 @Builder
-public class ExceptionDetails {
+@Data
+public class ExecptionsDetailsValidate {
     private String title;
-    private int status;
     private String message;
-    private LocalDateTime timeStamp;
-
+    private String fields;
+    private String fieldsMessages;
+    private LocalDateTime timestamp;
 }

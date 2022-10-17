@@ -13,12 +13,22 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
+/**
+ * The type Property controller.
+ */
 @RestController
 @RequestMapping("/property")
 public class PropertyController {
   @Autowired
   private IProperty service;
 
+  /**
+   * Gets property.
+   *
+   * @param id the id
+   * @return the property
+   * @throws InvalidParamException the invalid param exception
+   */
   @GetMapping("/{id}")
   public ResponseEntity<PropertyResponseDTO> getProperty(@PathVariable String id) throws InvalidParamException {
     try {
@@ -28,6 +38,12 @@ public class PropertyController {
     }
   }
 
+  /**
+   * Post property response entity.
+   *
+   * @param property the property
+   * @return the response entity
+   */
   @PostMapping
   @ResponseBody
   public ResponseEntity<PropertyResponseDTO> postProperty(@RequestBody @Valid PropertyRequestDTO property) {
