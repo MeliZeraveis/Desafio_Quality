@@ -9,6 +9,9 @@ import lombok.Setter;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
+/**
+ * The type Room request dto.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,6 +29,11 @@ public class RoomRequestDTO {
     @Max(value = 33, message = Msg.ROOM_WIDTH_VALUE_NOT_VALID)
     private double roomWidth;
 
+    /**
+     * Instantiates a new Room request dto.
+     *
+     * @param room the room
+     */
     public RoomRequestDTO(Room room) {
         this.roomName = room.getRoomName();
         this.roomLength = room.getRoomLength();

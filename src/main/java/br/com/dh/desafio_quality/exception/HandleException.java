@@ -16,8 +16,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Handle exception.
+ */
 @ControllerAdvice
 public class HandleException extends ResponseEntityExceptionHandler {
+    /**
+     * Handler not found exception response entity.
+     *
+     * @param ex the ex
+     * @return the response entity
+     */
     @ExceptionHandler (NotFoundException.class)
     public ResponseEntity<ExceptionDetails> handlerNotFoundException(NotFoundException ex) {
         ExceptionDetails exceptionDetails = ExceptionDetails.builder()
@@ -30,6 +39,12 @@ public class HandleException extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(exceptionDetails, HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * Handler invalid param exception response entity.
+     *
+     * @param ex the ex
+     * @return the response entity
+     */
     @ExceptionHandler (InvalidParamException.class)
     public ResponseEntity<ExceptionDetails> handlerInvalidParamException(InvalidParamException ex) {
         ExceptionDetails exceptionDetails = ExceptionDetails.builder()

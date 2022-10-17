@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * The type Property response dto.
+ */
 @Getter
 public class PropertyResponseDTO {
   private UUID id;
@@ -18,6 +21,11 @@ public class PropertyResponseDTO {
   private List<RoomResponseDTO> rooms;
   private RoomResponseDTO largestRoom;
 
+  /**
+   * Instantiates a new Property response dto.
+   *
+   * @param property the property
+   */
   public PropertyResponseDTO(Property property) {
     this.id = property.getId();
     this.propName = property.getPropName();

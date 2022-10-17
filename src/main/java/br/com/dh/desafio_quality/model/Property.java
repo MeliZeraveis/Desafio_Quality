@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * The type Property.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,6 +22,13 @@ public class Property {
   private List<Room> rooms;
   private Room largestRoom;
 
+  /**
+   * Instantiates a new Property.
+   *
+   * @param propName     the prop name
+   * @param propDistrict the prop district
+   * @param rooms        the rooms
+   */
   public Property(String propName, DistrictDTO propDistrict, List<Room> rooms) {
     this.id = UUID.randomUUID();
     this.propName = propName;

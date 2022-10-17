@@ -8,6 +8,9 @@ import lombok.Setter;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
+/**
+ * The type District dto.
+ */
 @Getter
 public class DistrictDTO {
   @NotBlank(message = Msg.DISTRICT_NOT_EMPTY)
@@ -19,6 +22,12 @@ public class DistrictDTO {
   @Digits(integer=13, fraction=2, message = Msg.DISTRICT_VALUE_NOT_VALID)
   private BigDecimal valueM2;
 
+  /**
+   * Instantiates a new District dto.
+   *
+   * @param name    the name
+   * @param valueM2 the value m 2
+   */
   public DistrictDTO(String name, BigDecimal valueM2) {
     this.name = name;
     this.valueM2 = valueM2;

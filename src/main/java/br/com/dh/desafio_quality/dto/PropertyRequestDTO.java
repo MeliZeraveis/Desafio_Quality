@@ -13,6 +13,9 @@ import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Property request dto.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,6 +31,13 @@ public class PropertyRequestDTO {
     // @NotBlank(message = Msg.ROOM_NOT_EMPTY)
     private List<@Valid RoomRequestDTO> rooms;
 
+    /**
+     * Instantiates a new Property request dto.
+     *
+     * @param propName     the prop name
+     * @param propDistrict the prop district
+     * @param rooms        the rooms
+     */
     public PropertyRequestDTO(String propName, DistrictDTO propDistrict, List<Room> rooms) {
         this.propName = propName;
         this.propDistrict = new DistrictDTO(propDistrict.getName(), propDistrict.getValueM2());

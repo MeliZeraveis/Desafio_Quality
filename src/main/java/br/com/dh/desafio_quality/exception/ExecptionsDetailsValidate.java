@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * The type Execptions details validate.
+ */
 @Builder
 @Data
 public class ExecptionsDetailsValidate {
