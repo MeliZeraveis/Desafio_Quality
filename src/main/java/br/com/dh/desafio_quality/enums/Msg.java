@@ -37,4 +37,6 @@ public class Msg {
     public static final String NAME_NOT_VALID = "Name must start with a capital letter and contain only letters";
     public static final String NAME_SIZE_NOT_VALID = "Name must be between 1 and 45 characters";
     public static final String PROPERTY_NOT_FOUND = "Property not found";
+
+    public static final String FIELD_NOT_FOUND =  "One or more fields are invalid.";
 }

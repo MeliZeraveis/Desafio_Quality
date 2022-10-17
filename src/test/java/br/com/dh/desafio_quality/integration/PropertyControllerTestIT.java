@@ -121,8 +121,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propName")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_NOT_EMPTY)));
     }
@@ -148,8 +148,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propName")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_SIZE_NOT_VALID)));
     }
@@ -175,8 +175,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propName")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_NOT_VALID)));
     }
@@ -202,8 +202,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("roomName")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_NAME_NOT_EMPTY)));
     }
@@ -229,8 +229,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("roomName")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_NAME_SIZE_NOT_VALID)));
     }
@@ -256,8 +256,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("roomLength")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_LENGTH_VALUE_NOT_VALID)));
     }
@@ -283,8 +283,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("roomWidth")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_WIDTH_VALUE_NOT_VALID)));
     }
@@ -310,8 +310,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propDistrict.name")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.DISTRICT_NOT_EMPTY)));
     }
@@ -337,8 +337,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propDistrict.name")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_NOT_VALID)));
     }
@@ -364,8 +364,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propDistrict.name")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_SIZE_NOT_VALID)));
     }
@@ -391,8 +391,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propDistrict.valueM2")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.DISTRICT_VALUE_NOT_POSITIVE)));
     }
@@ -418,8 +418,8 @@ public class PropertyControllerTestIT {
                         .content(objectMapper.writeValueAsString(propertyRequest)));
 
         response.andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.FIELD_NOT_FOUND)))
                 .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propDistrict.valueM2")))
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.DISTRICT_VALUE_NOT_VALID)));
     }

@@ -13,6 +13,7 @@ public enum ExceptionType {
    */
   PARAMETER_NOT_VALID("Parameter not valid");
 
+
   /**
    * The message public attribute.
    */
