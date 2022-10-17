@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -51,7 +52,12 @@ class PropertyServiceTest {
         DistrictDTO district = new DistrictDTO("Copacabana", BigDecimal.valueOf(1000) );
 
         propertyRequest = new PropertyRequestDTO("Casa", district, listRooms);
-        property = new Property(propertyRequest.getPropName(), propertyRequest.getPropDistrict(), propertyRequest.getRooms());
+
+        List<Room> newList = propertyRequest.getRooms().stream()
+                .map(room -> new Room(room.getRoomName(), room.getRoomWidth(), room.getRoomLength()))
+                .collect(Collectors.toList());
+
+        property = new Property(propertyRequest.getPropName(), propertyRequest.getPropDistrict(), newList);
 
         propertyResponse =  new PropertyResponseDTO(property);
 

@@ -2,6 +2,7 @@ package br.com.dh.desafio_quality.integration;
 
 import br.com.dh.desafio_quality.dto.DistrictDTO;
 import br.com.dh.desafio_quality.dto.PropertyRequestDTO;
+import br.com.dh.desafio_quality.enums.ExceptionType;
 import br.com.dh.desafio_quality.enums.Msg;
 import br.com.dh.desafio_quality.exception.ExceptionDetails;
 import br.com.dh.desafio_quality.model.Property;
@@ -24,6 +25,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 //import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -52,7 +54,11 @@ public class PropertyControllerTestIT {
         listRooms.add(new Room("cozinha", 10, 10 ));
         DistrictDTO district = new DistrictDTO("Tijuca", BigDecimal.valueOf(1000) );
         PropertyRequestDTO propertyRequestBefore = new PropertyRequestDTO("Casa", district, listRooms);
-        repository.save(new Property(propertyRequestBefore.getPropName(), propertyRequestBefore.getPropDistrict(), propertyRequestBefore.getRooms()));
+        List<Room> listNewRooms = propertyRequestBefore.getRooms().stream().map(room -> new Room(room.getRoomName(), room.getRoomWidth(), room.getRoomLength()))
+                .collect(Collectors.toList());
+
+
+        repository.save(new Property(propertyRequestBefore.getPropName(), propertyRequestBefore.getPropDistrict(), listNewRooms));
     }
 
 
@@ -105,7 +111,7 @@ public class PropertyControllerTestIT {
                 .contentType(MediaType.APPLICATION_JSON));
 
         response.andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.title", CoreMatchers.is(Msg.OBJECT_NOT_FOUND)))
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.OBJECT_NOT_FOUND.message)))
                 .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.PROPERTY_NOT_FOUND)))
                 .andExpect(jsonPath("$.status", CoreMatchers.is(HttpStatus.NOT_FOUND.value())));
     }

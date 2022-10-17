@@ -9,8 +9,6 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 @Getter
-@Setter
-@NoArgsConstructor
 public class DistrictDTO {
   @NotBlank(message = Msg.NAME_NOT_EMPTY)
   // `@Pattern(regexp = "[A-ZÁÀÃÉÈÊÍÏÓÔÕÖÚÇÑ][a-záàâãéèêíïóôõöúçñ]+", message = Msg.NAME_NOT_VALID)

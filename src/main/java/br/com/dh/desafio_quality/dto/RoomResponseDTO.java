@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-@Setter
-@NoArgsConstructor
 public class RoomResponseDTO {
   private String roomName;
   private double roomArea;

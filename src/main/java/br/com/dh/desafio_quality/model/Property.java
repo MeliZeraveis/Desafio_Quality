@@ -9,8 +9,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Property {
   private UUID id;
   private String propName;

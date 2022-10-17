@@ -9,10 +9,6 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class PropertyResponseDTO {
   private UUID id;
   private String propName;

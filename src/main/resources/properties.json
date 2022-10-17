@@ -1,8 +1,8 @@
 [ {
-  "id" : "87fd37e8-bc11-4728-9dd0-0478950aeb85",
+  "id" : "80d0ded9-f835-4878-82a7-291982c3aba9",
   "propName" : "Casa",
   "propDistrict" : {
-    "id" : "0dbd006d-d448-4ff0-bfd1-d86310389ab5",
+    "id" : "88dd5fe6-61c9-4c92-8e08-21a97d222131",
     "name" : "Tijuca",
     "valueM2" : 1000
   },
@@ -10,8 +10,8 @@
   "propValue" : 120000.0,
   "rooms" : [ {
     "roomName" : "quarto",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
+    "roomLength" : 5.0,
+    "roomWidth" : 4.0,
     "roomArea" : 20.0
   }, {
     "roomName" : "cozinha",
@@ -21,148 +21,8 @@
   } ],
   "largestRoom" : {
     "roomName" : "cozinha",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }
-
-}, {
-  "id" : "dcf183a8-38c7-4b97-9a3b-3b9d5e7e39fc",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : "39e93f92-49f4-4891-b1eb-2b6e5a047a91",
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 120.0,
-  "propValue" : 120000.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
-    "roomArea" : 20.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }
-}, {
-  "id" : "74e8deb1-40cb-4f15-b0c2-1831baf8c50b",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : "c779c668-be7f-4983-b4bf-46ad805739f9",
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 120.0,
-  "propValue" : 120000.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
-    "roomArea" : 20.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }
-}, {
-  "id" : "ffef3766-fa46-49a9-94dd-45dcfe3ad920",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : "238d9d86-2087-4f05-adab-342ba4660fdf",
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 120.0,
-  "propValue" : 120000.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
-    "roomArea" : 20.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }
-}, {
-  "id" : "c4de2699-a657-4210-a51d-8bad7dcfd23c",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : "cd0da24f-33da-4129-b59e-c96a9743ac98",
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 120.0,
-  "propValue" : 120000.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
-    "roomArea" : 20.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }
-}, {
-  "id" : "f404d09a-ab88-43ee-8f28-a20eb4debecc",
-  "propName" : "Mansão Dev",
-  "propDistrict" : {
-    "id" : "be24447a-0e12-4a76-8c74-621cc77c4d32",
-    "name" : "Tech District",
-    "valueM2" : 1000
-  },
-  "propArea" : 120.0,
-  "propValue" : 120000.0,
-  "rooms" : [ {
-    "roomName" : "Dev Room",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }, {
-    "roomName" : "Cozinha",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
-    "roomArea" : 20.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "Dev Room",
     "roomLength" : 10.0,
     "roomWidth" : 10.0,
     "roomArea" : 100.0
   }
 } ]
-
-}]
-
-
