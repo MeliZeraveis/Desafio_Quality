@@ -1,5 +1,6 @@
 package br.com.dh.desafio_quality.model;
 
+import br.com.dh.desafio_quality.dto.DistrictDTO;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -18,10 +19,10 @@ public class Property {
   private List<Room> rooms;
   private Room largestRoom;
 
-  public Property(String propName, District propDistrict, List<Room> rooms) {
+  public Property(String propName, DistrictDTO propDistrict, List<Room> rooms) {
     this.id = UUID.randomUUID();
     this.propName = propName;
-    this.propDistrict = propDistrict;
+    this.propDistrict = new District(propDistrict.getName(), propDistrict.getValueM2());
     this.rooms = rooms;
     this.propArea = rooms.stream().mapToDouble(Room::getRoomArea).sum();
     this.propValue = propDistrict.getValueM2().multiply(BigDecimal.valueOf(propArea));

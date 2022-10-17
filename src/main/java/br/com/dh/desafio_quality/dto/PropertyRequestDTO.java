@@ -5,6 +5,7 @@ import br.com.dh.desafio_quality.model.District;
 import br.com.dh.desafio_quality.model.Room;
 import lombok.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -22,14 +23,14 @@ public class PropertyRequestDTO {
     private String propName;
     @NotNull(message = Msg.DISTRICT_REQUIRED)
 //    @Pattern(regexp = "[A-ZÁÀÃÉÈÊÍÏÓÔÕÖÚÇÑ][a-záàâãéèêíïóôõöúçñ]+.*", message = Msg.NAME_NOT_VALID)
-    private District propDistrict;
+    private @Valid DistrictDTO propDistrict;
     @NotNull(message = Msg.ROOM_REQUIRED)
     // @NotBlank(message = Msg.ROOM_NOT_EMPTY)
-    private List<RoomRequestDTO> rooms;
+    private List<@Valid RoomRequestDTO> rooms;
 
     public PropertyRequestDTO(String propName, DistrictDTO propDistrict, List<Room> rooms) {
         this.propName = propName;
-        this.propDistrict = new District(propDistrict.getName(), propDistrict.getValueM2());
+        this.propDistrict = new DistrictDTO(propDistrict.getName(), propDistrict.getValueM2());
         this.rooms = rooms.stream().map(RoomRequestDTO::new).collect(Collectors.toList());
     }
 }

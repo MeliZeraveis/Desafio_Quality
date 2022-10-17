@@ -6,23 +6,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 public class RoomRequestDTO {
-  @NotBlank(message = Msg.ROOM_NAME_NOT_EMPTY)
-  @Size(min = 1, max = 30, message = Msg.ROOM_NAME_SIZE_NOT_VALID)
-  private String roomName;
+    @NotNull(message = Msg.ROOM_NAME_REQUIRED)
+    @NotBlank(message = Msg.ROOM_NAME_NOT_EMPTY)
+    @Size(min = 1, max = 30, message = Msg.ROOM_NAME_SIZE_NOT_VALID)
+    private String roomName;
+    @NotNull(message = Msg.ROOM_LENGTH_REQUIRED)
+    @Min(value = 1, message = Msg.ROOM_LENGTH_VALUE_NOT_VALID)
+    @Max(value = 33, message = Msg.ROOM_LENGTH_VALUE_NOT_VALID)
+    private double roomLength;
+    @NotNull(message = Msg.ROOM_WIDTH_REQUIRED)
+    @Min(value = 1, message = Msg.ROOM_WIDTH_VALUE_NOT_VALID)
+    @Max(value = 33, message = Msg.ROOM_WIDTH_VALUE_NOT_VALID)
+    private double roomWidth;
 
-  private double roomLength;
-  private double roomWidth;
-
-  public RoomRequestDTO(Room room) {
-    this.roomName = room.getRoomName();
-    this.roomLength = room.getRoomLength();
-    this.roomWidth = room.getRoomWidth();
-  }
+    public RoomRequestDTO(Room room) {
+        this.roomName = room.getRoomName();
+        this.roomLength = room.getRoomLength();
+        this.roomWidth = room.getRoomWidth();
+    }
 }

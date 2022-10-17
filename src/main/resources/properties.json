@@ -1,8 +1,8 @@
 [ {
-  "id" : "ee115a14-8513-48c3-9b70-a92e157fec63",
+  "id" : "3ea27919-90dd-497e-9d5c-2f113714d2a7",
   "propName" : "Casa",
   "propDistrict" : {
-    "id" : "078928aa-dcda-4cd6-b0d5-84a13eb3fab5",
+    "id" : "30437e28-f7ee-44c7-9751-25286f446eae",
     "name" : "Tijuca",
     "valueM2" : 1000
   },
@@ -21,33 +21,6 @@
   } ],
   "largestRoom" : {
     "roomName" : "cozinha",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  }
-}, {
-  "id" : "c5e7418f-8502-488a-8798-b1e65442075e",
-  "propName" : "Casa do josé",
-  "propDistrict" : {
-    "id" : null,
-    "name" : "RJ",
-    "valueM2" : 1000
-  },
-  "propArea" : 120.0,
-  "propValue" : 120000.0,
-  "rooms" : [ {
-    "roomName" : "roomName1",
-    "roomLength" : 4.0,
-    "roomWidth" : 5.0,
-    "roomArea" : 20.0
-  }, {
-    "roomName" : "roomName2",
-    "roomLength" : 10.0,
-    "roomWidth" : 10.0,
-    "roomArea" : 100.0
-  } ],
-  "largestRoom" : {
-    "roomName" : "roomName2",
     "roomLength" : 10.0,
     "roomWidth" : 10.0,
     "roomArea" : 100.0
