@@ -1,7 +1,6 @@
 package br.com.dh.desafio_quality.exception;
 
 import br.com.dh.desafio_quality.enums.ExceptionType;
-import br.com.dh.desafio_quality.enums.Msg;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +16,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * The type Handle exception.
+ * HandleException - custom exception handler.
  */
 @ControllerAdvice
 public class HandleException extends ResponseEntityExceptionHandler {
     /**
-     * Handler not found exception response entity.
+     * Handler for NotFoundException entities.
      *
-     * @param ex the ex
-     * @return the response entity
+     * @param ex the NotFoundException instance
+     * @return the generated ResponseEntity with the exception details and the status code
      */
     @ExceptionHandler (NotFoundException.class)
     public ResponseEntity<ExceptionDetails> handlerNotFoundException(NotFoundException ex) {
@@ -40,10 +39,10 @@ public class HandleException extends ResponseEntityExceptionHandler {
     }
 
     /**
-     * Handler invalid param exception response entity.
+     * Handler for InvalidParamException entity.
      *
-     * @param ex the ex
-     * @return the response entity
+     * @param ex the InvalidParamException instance
+     * @return the generated ResponseEntity with the exception details and the status code
      */
     @ExceptionHandler (InvalidParamException.class)
     public ResponseEntity<ExceptionDetails> handlerInvalidParamException(InvalidParamException ex) {
@@ -57,6 +56,12 @@ public class HandleException extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(exceptionDetails, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Handler for MethodArgumentNotValidException entity.
+     *
+     * @param ex the MethodArgumentNotValidException instance
+     * @return the generated ResponseEntity with the exception details and the status code
+     */
     @Override
     public ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,
@@ -65,19 +70,14 @@ public class HandleException extends ResponseEntityExceptionHandler {
             WebRequest webRequest) {
 
         List<FieldError> errors = ex.getBindingResult().getFieldErrors();
+        ExceptionsDetailsValidate exceptionDetails = ExceptionsDetailsValidate.builder()
+                .title(ExceptionType.PARAMETER_NOT_VALID.message)
+                .message("One or more fields are invalid.")
+                .fields(errors.stream().map(FieldError::getField).collect(Collectors.joining(";")))
+                .fieldsMessages(errors.stream().map(FieldError::getDefaultMessage).collect(Collectors.joining(";")))
+                .timestamp(LocalDateTime.now())
+                .build();
 
-        return new ResponseEntity<>(
-                ExecptionsDetailsValidate.builder()
-                        .title("Parâmetros inválidos")
-                        .message("Os campos estão inválidos")
-                        .fields(errors.stream().map(FieldError::getField)
-                                .collect(Collectors.joining(";")))
-                        .fieldsMessages(errors.stream().map(FieldError::getDefaultMessage)
-                                .collect(Collectors.joining(";")))
-                        .timestamp(LocalDateTime.now())
-                        .build() //new
-                ,
-                httpStatus);
-
+        return new ResponseEntity<>(exceptionDetails, httpStatus);
     }
 }

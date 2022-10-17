@@ -7,11 +7,11 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * The type Execptions details validate.
+ * The type Exceptions details validate.
  */
 @Builder
 @Data
-public class ExecptionsDetailsValidate {
+public class ExceptionsDetailsValidate {
     private String title;
     private String message;
     private String fields;

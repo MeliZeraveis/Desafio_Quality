@@ -34,6 +34,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * The type Property controller test it.
+ */
 @Log4j2
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -47,6 +50,9 @@ public class PropertyControllerTestIT {
     @Autowired
     private ObjectMapper objectMapper;
 
+    /**
+     * setup - prepares the environment before each test.
+     */
     @BeforeEach
     void setup() {
         repository.deleteAll();
@@ -63,6 +69,11 @@ public class PropertyControllerTestIT {
     }
 
 
+    /**
+     * New property return property success.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnProperty_Success() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -89,6 +100,11 @@ public class PropertyControllerTestIT {
         assertThat(repository.getAll().get(0)).isNotNull();
     }
 
+    /**
+     * New property return exception prop name not blank.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_PropNameNotBlank() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -111,6 +127,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_NOT_EMPTY)));
     }
 
+    /**
+     * New property return exception prop name length.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_propNameLength() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -133,6 +154,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_SIZE_NOT_VALID)));
     }
 
+    /**
+     * New property return exception prop name lower case.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_propNameLowerCase() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -155,6 +181,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_NOT_VALID)));
     }
 
+    /**
+     * New property return exception room name not blank.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_roomNameNotBlank() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -177,6 +208,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_NAME_NOT_EMPTY)));
     }
 
+    /**
+     * New property return exception room name length.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_roomNameLength() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -199,6 +235,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_NAME_SIZE_NOT_VALID)));
     }
 
+    /**
+     * New property return exception room length not valid.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_roomLengthNotValid() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -221,6 +262,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_LENGTH_VALUE_NOT_VALID)));
     }
 
+    /**
+     * New property return exception room width not valid.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_roomWidthNotValid() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -243,27 +289,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_WIDTH_VALUE_NOT_VALID)));
     }
 
-//    @Test
-//    void newProperty_ReturnException_whenRoomListisNull() throws Exception {
-//
-//        DistrictDTO district = new DistrictDTO("Copacabana", BigDecimal.valueOf(1000) );
-//        List<Room> listRooms = new ArrayList<>();
-//        listRooms.add(new Room("Sala de Estar", 10, 5 ));
-//        listRooms.add(new Room("Cozinha", 10, 80 ));
-//        PropertyRequestDTO propertyRequest = new PropertyRequestDTO("Casa do Hugo", district, listRooms);
-//
-//        ResultActions response = mockMvc
-//                .perform(post("/property")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(objectMapper.writeValueAsString(propertyRequest)));
-//
-//        response.andExpect(status().isBadRequest())
-//                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
-//                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
-//                .andExpect(jsonPath("$.fields", CoreMatchers.containsString("rooms")))
-//                .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.ROOM_REQUIRED)));
-//    }
-
+    /**
+     * New property return exception when district name is empty.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_whenDistrictNameIsEmpty() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -286,6 +316,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.DISTRICT_NOT_EMPTY)));
     }
 
+    /**
+     * New property return exception when district name not start with capital letter.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_whenDistrictNameNotStartWithCapitalLetter() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -308,6 +343,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_NOT_VALID)));
     }
 
+    /**
+     * New property return exception when district name size is not valid.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_whenDistrictNameSizeIsNotValid() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -330,6 +370,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_SIZE_NOT_VALID)));
     }
 
+    /**
+     * New property return exception when district value is not positive.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_whenDistrictValueIsNotPositive() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -352,6 +397,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.DISTRICT_VALUE_NOT_POSITIVE)));
     }
 
+    /**
+     * New property return exception when district value is not valid.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void newProperty_ReturnException_whenDistrictValueIsNotValid() throws Exception {
         List<Room> listRooms = new ArrayList<>();
@@ -375,6 +425,11 @@ public class PropertyControllerTestIT {
     }
 
 
+    /**
+     * Gets property return property success.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void getProperty_returnProperty_Success() throws Exception {
         Property property = repository.getAll().get(0);
@@ -391,6 +446,11 @@ public class PropertyControllerTestIT {
 
     }
 
+    /**
+     * Gets property return exception not found.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void getProperty_returnException_NotFound() throws Exception {
         ResultActions response = mockMvc
@@ -403,6 +463,11 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.status", CoreMatchers.is(HttpStatus.NOT_FOUND.value())));
     }
 
+    /**
+     * Gets property return exception id invalid.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void getProperty_returnException_IdInvalid() throws Exception {
         ResultActions response = mockMvc

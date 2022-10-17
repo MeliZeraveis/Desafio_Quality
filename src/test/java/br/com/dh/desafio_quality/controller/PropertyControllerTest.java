@@ -33,6 +33,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * The type Property controller test.
+ */
 @WebMvcTest(PropertyController.class)
 class PropertyControllerTest {
 
@@ -42,14 +45,29 @@ class PropertyControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    /**
+     * The Controller.
+     */
     PropertyController controller;
 
+    /**
+     * The Service.
+     */
     @MockBean
     PropertyService service;
 
+    /**
+     * The Property request.
+     */
     PropertyRequestDTO propertyRequest;
+    /**
+     * The Property response.
+     */
     PropertyResponseDTO propertyResponse;
 
+    /**
+     * Sets up.
+     */
     @BeforeEach
     void setUp() {
         List<Room> listRooms = new ArrayList<>();
@@ -70,6 +88,12 @@ class PropertyControllerTest {
 
     }
 
+    /**
+     * Gets property by id when id is valid then return property.
+     *
+     * @throws NotFoundException the not found exception
+     * @throws Exception         the exception
+     */
     @Test
     @DisplayName("Tests the method that gets a property by ID - Controller")
     void getPropertyById_WhenIdIsValid_ThenReturnProperty() throws NotFoundException, Exception {
@@ -84,6 +108,12 @@ class PropertyControllerTest {
                 .andExpect(jsonPath("$.propDistrict", CoreMatchers.is(propertyResponse.getPropDistrict())));
     }
 
+    /**
+     * Gets property by id when id is valid then return exception.
+     *
+     * @throws NotFoundException the not found exception
+     * @throws Exception         the exception
+     */
     @Test
     @DisplayName("Tests the method that gets a property by ID and return an Exception - Controller")
     void getPropertyById_WhenIdIsValid_ThenReturnException() throws NotFoundException, Exception {
@@ -97,6 +127,11 @@ class PropertyControllerTest {
         response.andExpect(status().isNotFound());
     }
 
+    /**
+     * Post property when property is valid then return property.
+     *
+     * @throws Exception the exception
+     */
     @Test
     @DisplayName("Tests the method that posts a property - Controller")
     void postProperty_WhenPropertyIsValid_ThenReturnProperty() throws Exception {
