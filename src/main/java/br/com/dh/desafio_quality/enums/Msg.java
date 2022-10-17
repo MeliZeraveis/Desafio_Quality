@@ -1,5 +1,8 @@
 package br.com.dh.desafio_quality.enums;
 
+/**
+ * The enum Msg lists all the messages returned to the user.
+ */
 public class Msg {
     public static final String NAME_REQUIRED = "Name is required";
     public static final String DISTRICT_REQUIRED = "District is required";

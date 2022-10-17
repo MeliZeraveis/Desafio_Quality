@@ -23,6 +23,13 @@ public class PropertyService implements IProperty {
   @Autowired
   private PropertyRepo repo;
   @Override
+  /**
+   * Gets property.
+   *
+   * @param id the id
+   * @return the property
+   * @throws NotFoundException the not found exception
+   */
   public PropertyResponseDTO getProperty(UUID id) throws NotFoundException {
     Optional<Property> property = repo.getOne(id);
 
@@ -33,6 +40,12 @@ public class PropertyService implements IProperty {
     return new PropertyResponseDTO(property.get());
   }
 
+  /**
+   * Post property property response dto.
+   *
+   * @param newProperty the property
+   * @return the property response dto
+   */
   @Override
   public PropertyResponseDTO postProperty(PropertyRequestDTO newProperty) {
     List<Room> newRooms = newProperty.getRooms().stream()
