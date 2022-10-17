@@ -89,6 +89,30 @@ public class PropertyControllerTestIT {
     }
 
     @Test
+    void newProperty_ReturnException_PropNameNotBlank() throws Exception {
+        List<Room> listRooms = new ArrayList<>();
+        listRooms.add(new Room("Sala de estar", 4, 5 ));
+        listRooms.add(new Room("Cozinha", 10, 10 ));
+
+        DistrictDTO district = new DistrictDTO("Copacabana", BigDecimal.valueOf(1000) );
+
+        PropertyRequestDTO propertyRequest = new PropertyRequestDTO("", district, listRooms);
+
+        ResultActions response = mockMvc
+                .perform(post("/property")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(propertyRequest)));
+
+        response.andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.title", CoreMatchers.is("Parâmetros inválidos")))
+                .andExpect(jsonPath("$.message", CoreMatchers.is("Os campos estão inválidos")))
+                .andExpect(jsonPath("$.fields", CoreMatchers.containsString("propName")))
+                .andExpect(jsonPath("$.fieldsMessages", CoreMatchers.containsString(Msg.NAME_NOT_EMPTY)));
+
+
+    }
+
+    @Test
     void getProperty_returnProperty_Success() throws Exception {
         Property property = repository.getAll().get(0);
 
@@ -105,7 +129,7 @@ public class PropertyControllerTestIT {
     }
 
     @Test
-    void getProperty_returnProperty_NotFound() throws Exception {
+    void getProperty_returnException_NotFound() throws Exception {
         ResultActions response = mockMvc
                 .perform(get("/property/{id}", "3275b207-4711-4801-9e29-1bd09ae71faf" )
                 .contentType(MediaType.APPLICATION_JSON));
@@ -114,5 +138,17 @@ public class PropertyControllerTestIT {
                 .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.OBJECT_NOT_FOUND.message)))
                 .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.PROPERTY_NOT_FOUND)))
                 .andExpect(jsonPath("$.status", CoreMatchers.is(HttpStatus.NOT_FOUND.value())));
+    }
+
+    @Test
+    void getProperty_returnException_IdInvalid() throws Exception {
+        ResultActions response = mockMvc
+                .perform(get("/property/{id}", "aaaaaaa" )
+                        .contentType(MediaType.APPLICATION_JSON));
+
+        response.andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.title", CoreMatchers.is(ExceptionType.PARAMETER_NOT_VALID.message)))
+                .andExpect(jsonPath("$.message", CoreMatchers.is(Msg.ID_NOT_VALID)))
+                .andExpect(jsonPath("$.status", CoreMatchers.is(HttpStatus.BAD_REQUEST.value())));
     }
 }

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Getter
 public class DistrictDTO {
   @NotBlank(message = Msg.NAME_NOT_EMPTY)
-  // `@Pattern(regexp = "[A-ZÁÀÃÉÈÊÍÏÓÔÕÖÚÇÑ][a-záàâãéèêíïóôõöúçñ]+", message = Msg.NAME_NOT_VALID)
+//  @Pattern(regexp = "[A-ZÁÀÃÉÈÊÍÏÓÔÕÖÚÇÑ][a-záàâãéèêíïóôõöúçñ]+.*", message = Msg.NAME_NOT_VALID)
   @Size(min = 1, max = 45, message = Msg.NAME_SIZE_NOT_VALID)
   private String name;
   @NotNull(message = Msg.DISTRICT_VALUE_REQUIRED)
